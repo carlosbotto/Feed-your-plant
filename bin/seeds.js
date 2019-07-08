@@ -6,6 +6,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const User = require("../models/User");
+const Plant = require("../models/Plant");
 
 const bcryptSalt = 10;
 
@@ -16,18 +17,24 @@ mongoose
   })
   .catch(err => {
     console.error('Error connecting to mongo', err)
-  });
+});
+
+//_____________________________________________
+
 
 let users = [
   {
     username: "alice",
     password: bcrypt.hashSync("alice", bcrypt.genSaltSync(bcryptSalt)),
+    email: "alice@gmail.com"
   },
   {
     username: "bob",
     password: bcrypt.hashSync("bob", bcrypt.genSaltSync(bcryptSalt)),
+    email: "bob@gmail.com"
   }
 ]
+
 
 User.deleteMany()
 .then(() => {
@@ -45,3 +52,35 @@ User.deleteMany()
   mongoose.disconnect()
   throw err
 })
+
+//_____________________________________________
+
+
+let plants = [
+  {
+    name: "Monstera", 
+    waterFrquencyInDays: 4,
+    picPath: "String",
+    description: "Lorem ipsu",
+    status: "Decoration"
+  },
+  {
+    name: "Ficus Benjamino", 
+    waterFrquencyInDays: 9,
+    picPath: "String",
+    description: "Lorem ipsu Ficusssssssss",
+    status: "Decoration"
+  },
+]
+
+
+Plant.deleteMany()
+  .then(() => {
+    return Plant.create(plants)
+  })
+  .then(createdDocuments => {
+    console.log(createdDocuments.length + " documents have been created in the collection 'plants'");
+    mongoose.connection.close();
+  })
+
+
