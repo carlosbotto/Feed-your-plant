@@ -5,18 +5,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>{{title}}</title>
+  <title>Feed Your Plant</title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 
 <body>
 
 
+
+
   <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
     <a class="navbar-brand" href="/">
-    <img src="../images/losango.png" width="30" height="35" class="d-inline-block align-top" alt="">
-    Feed your Plant
-  </a>
+      <img src="../images/losango.png" width="30" height="35" class="d-inline-block align-top" alt="">
+      Feed your Plant
+    </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -57,10 +59,10 @@
     </div>
   </nav>
 
-
-  <div class="container mt-4">
+  
+  {{#unless homePage}}<div class="container mt-4">{{/unless}}
     {{{body}}}
-  </div>
+  {{#unless homePage}}</div>{{/unless}}
 
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

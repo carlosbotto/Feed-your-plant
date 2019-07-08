@@ -1,10 +1,35 @@
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
 
+
+
+
+body {
+  padding: 0px;
+  
+ 
+}
+
 .container {
-  padding: 50px;
+  
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
 }
+
+
+.jumbotron {
+  background-image: url("../images/intro.jpg"); 
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 70vh;
+  
+  color:bisque;
+  
+}
+
+.container-home .card {
+  border: none
+}
+

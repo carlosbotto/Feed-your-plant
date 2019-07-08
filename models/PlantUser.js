@@ -3,6 +3,12 @@ const Schema = mongoose.Schema;
 
 const plantUserSchema = new Schema(
   {
+    name: String,
+    description: String,
+    picPath: 
+    { type: String,
+      //required: true
+    },
     _user: {
       type: Schema.Types.ObjectId,
       ref: "User"
@@ -10,7 +16,7 @@ const plantUserSchema = new Schema(
     _plant: {
       type: Schema.Types.ObjectId,
       ref: "Plant"
-    }
+    },
   },
 
   {
@@ -21,5 +27,5 @@ const plantUserSchema = new Schema(
   }
 );
 
-const PlantUser = mongoose.model("PlantUser", userSchema);
+const PlantUser = mongoose.model("PlantUser", plantUserSchema);
 module.exports = PlantUser;
