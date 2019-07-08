@@ -1,20 +1,3 @@
-{{!-- <section>
-  <h2>Upload your photo</h2>
-  <form action="/upload" method="post" enctype="multipart/form-data">
-    <input type="text" name="name">
-    <input type="file" name="photo">
-    <input type="submit" value="Save">
-  </form>
-</section> --}}
-
-{{!-- <section>
-  {{#each pictures}}
-    <h3>{{ this.name }}</h3>
-    <img src="{{ this.path }}" alt="{{ this.originalName }}" />
-  {{/each}}
-</section> --}}
-
-
 <h2>Upload your Plant</h2>
 
 {{!-- Post form with enctype="multipart/form-data" (To send files) --}}
@@ -32,7 +15,7 @@
 
   {{!-- This input to define a req.file, because of `uploadCloud.single("photo")` in routes/index.js  --}}
 
-  <label>Poster</label>
+  <label>Photo</label>
   <input class="form-control" type="file" name="photo">
   <br>
 
@@ -40,36 +23,3 @@
 </form>
 
 
-<div class="plants-wrapper">
-  {{#each plantUsers}}
-    <div class="plant-item">
-      <img src="{{this.picPath}}" alt="">
-      <h4>{{this.name}}</h4>
-      <p>{{this.description}}</p>
-    </div>
-  {{else}}
-    <p>There are no Plant yet! :(</p>
-  {{/each}}
-</div>
-
-
-{{!-- <div class="card mb-3" style="max-width: 540px;">
-  <div class="row no-gutters">
-    <div class="col-md-4">
-      {{#each pictures}}
-      <img src="{{ this.path }}" class="card-img" alt="{{ this.originalName }}">
-      {{/each}}
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        {{#each pictures}}
-        <h5 class="card-title">{{ this.name }}</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-         {{else}}
-         <p>There are no plants yet!</p>
-         {{/each}}
-      </div>
-    </div>
-  </div>
-</div> --}}

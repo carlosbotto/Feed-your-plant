@@ -15,7 +15,10 @@ router.get("/", (req, res, next) => {
 });
 
 router.get("/profile", checkLogin, (req, res, next) => {
-  res.render("profile", { user: req.user }); // When connected, req.user is defined
+  PlantUser.find({ _user: req.user._id }) // To filter the plants of each user
+  .then(plantUsers => {
+    res.render("profile", { user: req.user, plantUsers }); // When connected, req.user is defined
+  })
 });
 
 router.get("/plants", (req, res, next) => {
@@ -26,45 +29,26 @@ router.get("/plants", (req, res, next) => {
   });
 });
 
-router.get("/add-plant", (req, res, next) => {
+router.get("/add-plant", checkLogin, (req, res, next) => {
   PlantUser.find()
   .then(plantUsers => {
     res.render('add-plant', {plantUsers})
   })
 });
 
-
-// router.post('/upload', upload.single('photo'), (req, res) => {
-//   //console.log("TCL: req.file", req.file)
-//   const pic = new Picture({
-//     name: req.body.name,
-//     path: `/uploads/${req.file.filename}`,
-//     originalName: req.file.originalname
-//   });
-
-//   pic.save((err) => {
-//       res.redirect('/');
-//   });
-// });
-
-
-router.post('/add-plant', uploadCloud.single('photo'), (req, res, next) => {
+router.post('/add-plant', checkLogin, uploadCloud.single('photo'), (req, res, next) => {
   const { name, description } = req.body;
   const picPath = req.file.url;
-  const imgName = req.file.originalname;
-  const newPlantUser = new PlantUser({name, description, picPath})
+  const _user = req.user._id;
+  // const _plant = req.plant._id;
+  const newPlantUser = new PlantUser({name, description, picPath, _user})
   newPlantUser.save()
   .then( photo => {
-    res.redirect('/add-plant');
+    res.redirect('/profile'); // Once the plant is created, go to profile to display it
   })
   .catch(error => {
     console.log(error);
   })
 });
-
-
-
-
-
 
 module.exports = router;
