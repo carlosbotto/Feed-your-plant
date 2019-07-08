@@ -1,1 +1,44 @@
-profileee
+{{!-- profile.hbs --}}
+
+<div class="container-fluid">
+  <h1 class="display-4">Hello, {{user.username}}!</h1>
+  <p class="lead">This is your personal page. You can add your plants.</p>
+  <hr class="my-4">
+  <p><small class="text-muted">Member since: {{user.created_at}}</small></p>
+  <a class="btn btn-primary btn-lg" href="#" role="button">Add plant</a>
+</div>
+
+{{!-- <div class="card mb-3" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="../images/default-avatar.png" class="card-img" alt="">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{user.username}}</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.
+          This content is a little bit longer.</p>
+        <p class="card-text"><small class="text-muted">Member since: {{user.created_at}}</small></p>
+      </div>
+    </div>
+  </div>
+</div> --}}
+
+{{#each plantUsers}}
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="{{ this.picPath }}" class="card-img" alt="">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{ this.name }}</h5>
+        <p class="card-text">{{ this.description }}</p>
+        <p class="card-text"><small class="text-muted">Created on the: {{this.created_at}}</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+{{else}}
+<p>There are no plants yet!</p>
+{{/each}}
