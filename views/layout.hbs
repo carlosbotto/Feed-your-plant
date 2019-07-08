@@ -10,13 +10,10 @@
 </head>
 
 <body>
-
-
-
-
-  <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+  <nav class="navbar navbar-expand-sm navbar-light bg-primary">
+  <div class="container-index">
     <a class="navbar-brand" href="/">
-      <img src="../images/losango.png" width="30" height="35" class="d-inline-block align-top" alt="">
+      <img src="../images/losango-plant2.png" width="50" height="50" class="d-inline-block align-top" alt="">
       Feed your Plant
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -58,11 +55,12 @@
       </ul>
     </div>
   </nav>
+  </div>
 
-  
+
   {{#unless homePage}}<div class="container mt-4">{{/unless}}
     {{{body}}}
-  {{#unless homePage}}</div>{{/unless}}
+    {{#unless homePage}}</div>{{/unless}}
 
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

@@ -1,35 +1,57 @@
-@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+$primary: rgba(249, 246, 182, 0.9);
 
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
+h1, h2, h3, h4, h5 {
+  font-family: superclarendon;
+  font-weight: bold;
+}
 
+.navbar-light .navbar-nav .nav-link {
+  color: #19975d;
+}
+
+.container-index{
+  background-color: rgba(249, 246, 182, 0.9);
+}
+
+@font-face {
+  //font-family: superclarendon;
+  src: url(superclarendon.woff);
+}
+
+.navbar-light .navbar-brand {
+  color: rgba(0, 0, 0, 0.9);
+  color: #19975d;
+}
+
+.navbar-brand {
+  line-height: 50px;
+}
+
+* {
+  font-family: monospace;
+}
+
+.navbar.a {
+  color: #19975d;
+}
 
 body {
   padding: 0px;
-  
- 
+  font-family: monospace;
+  font-size: 16px;
 }
-
-.container {
-  
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-a {
-  color: #00B7FF;
-}
-
 
 .jumbotron {
-  background-image: url("../images/intro.jpg"); 
+  background-image: url("../images/intro.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 70vh;
-  
-  color:bisque;
-  
+
+  color: white;
 }
 
 .container-home .card {
-  border: none
+  border: none;
 }
-
