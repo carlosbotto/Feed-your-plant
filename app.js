@@ -74,12 +74,15 @@ app.use(session({
 app.use(flash());
 require('./passport')(app);
     
+// Middleware always executed before the routes
+app.use((req,res,next) => {
+  console.log("Own middleware")
+  res.locals.user = req.user // Define a view variable "user" that is req.user
+  next()
+})
 
-const index = require('./routes/index');
-app.use('/', index);
-
-const authRoutes = require('./routes/auth');
-app.use('/auth', authRoutes);
+app.use('/', require('./routes/index'));
+app.use('/auth', require('./routes/auth'));
       
 
 module.exports = app;

@@ -14,7 +14,7 @@
 
   <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
     <a class="navbar-brand" href="/">
-    <img src="../images/losango.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    <img src="../images/losango.png" width="30" height="35" class="d-inline-block align-top" alt="">
     Feed your Plant
   </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -27,35 +27,40 @@
         <li class="nav-item">
           <a class="nav-link" href="/plants">Plants</a>
         </li>
+
+        {{#if user}}
+
+        <li class="nav-item">
+          <a class="nav-link" href="/profile">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/add-plant">Add Plant</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/auth/logout">Logout</a>
+        </li>
+
+        {{else}}
+
         <li class="nav-item">
           <a class="nav-link" href="/auth/login">Login</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/auth/signup">Signup</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/auth/logout">Logout</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/profile">Profile</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/add-post">Add Post</a>
-        </li>
+
+        {{/if}}
+
+
+
       </ul>
     </div>
   </nav>
 
+
   <div class="container mt-4">
     {{{body}}}
   </div>
-
-
-
-
-
-
-
 
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
