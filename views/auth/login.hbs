@@ -1,25 +1,28 @@
-
 <h2>Login</h2>
+<br><br>
+
 
 <form action="/auth/login" method="POST" id="form-container">
   <label for="username">Username</label>
-  <input id="username" type="text" name="username" placeholder="JonSnow">
+  <input class="form-control" id="username" type="text" name="username" placeholder="Your username" style="background-color: rgba(249, 246, 182, 0.2)">
 
   <br><br>
 
   <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
+  <input class="form-control" id="password" type="password" name="password" placeholder="Your password" style="background-color: rgba(249, 246, 182, 0.2)">
   <br>
   {{#if message }}
-    <div class="error-message">{{ message }}</div>
+  <div class="error-message">{{ message }}</div>
   {{/if}}
 
-  <br><br>
+  <br>
 
-  <button>Login</button>
+  <button class="btn btn-primary btn-sm ">Login</button>
+  {{!-- <a class="btn btn-primary btn-sm ">Login</a> --}}
 
   <p class="account-message">
+    <br>
     Don't have an account yet?
-    <a href="/auth/signup">Signup</a>
+    <a href="/auth/signup" style="color: #19975d;">Signup</a>
   </p>
 </form>

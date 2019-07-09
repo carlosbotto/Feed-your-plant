@@ -1,27 +1,29 @@
 <h2>Create your Plant</h2>
 
+<br>
+
 {{!-- Post form with enctype="multipart/form-data" (To send files) --}}
 <form action="/add-plant" method="post" enctype="multipart/form-data">
 
   {{!-- This input to define a req.body.name --}}
   <label>Name</label>
-  <input class="form-control" type="text" name="name" value="{{plant.name}}">
+  <input class="form-control" type="text" style="background-color: rgba(249, 246, 186, 0.2)" name="name" value="{{plant.name}}">
   <br>
 
   {{!-- This input to define a req.body.description --}}
   <label>Description</label>
-  <textarea class="form-control" name="description" rows="5" cols="20">{{plant.description}}</textarea>
+  <textarea class="form-control" name="description" rows="5" cols="20" style="background-color: rgba(249, 246, 182, 0.2)">{{plant.description}}</textarea>
   <br>
 
   {{!-- This input to define a req.body.waterFrequencyInDays --}}
-  <label>Water frequency every (x) days</label>
-  <input class="form-control" type="text" name="waterFrequencyInDays" value="{{plant.waterFrequencyInDays}}">
+  <label>Water frequency every X days</label>
+  <input class="form-control" type="text" name="waterFrequencyInDays" value="{{plant.waterFrequencyInDays}}" style="background-color: rgba(249, 246, 182, 0.2)">
   <br>
 
   {{#if plant.picPath}}
   <label>Default Photo</label><br>
   <img src="{{plant.picPath}}" alt="" class="img-fluid">
-  <input value="{{plant.picPath}}" name="picPath" type="hidden">
+  <input  value="{{plant.picPath}}"   name="picPath" type="hidden">
   <br>
   <br>
   {{/if}}
@@ -30,11 +32,10 @@
   {{!-- This input to define a req.file, because of `uploadCloud.single("photo")` in routes/index.js  --}}
 
   <label>Choose your own Photo (optional)</label>
-  <input class="form-control" type="file" name="photo">
+  <input class="form-control " type="file" name="photo" style="background-color: rgba(249, 246, 182, 0.2)">
   <br>
 
-  <input type="submit" value="SAVE" class="btn btn-primary">
+  <input type="submit" value="Save" class="btn btn-primary">
   {{!-- <a class="btn btn-success btn-sm " href="/profile" role="button">Add to my garden</a> --}}
 </form>
 
-<br><br>

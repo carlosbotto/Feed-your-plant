@@ -30,6 +30,13 @@ h4 {
   background-color: rgba(249, 246, 182, 0.9);
 }
 
+
+.container-home-inf{
+  background-color: rgba(249, 246, 182, 0.9);
+
+}
+
+
 .navbar-brand {
   line-height: 50px;
 }
@@ -48,12 +55,14 @@ body {
   background-image: url("../images/intro_smaller.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 70vh;
+  height: 68vh;
   color: white;
 }
 
 .container-home .card {
   border: none;
+  //margin: -10px;
+  
 }
 
 .jumbotron-plants {
@@ -72,3 +81,6 @@ body {
   border-radius: 5px;
 }
 
+.clearfix{
+  clear:both;
+}

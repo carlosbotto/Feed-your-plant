@@ -7039,6 +7039,9 @@ h4 {
 .container-index {
   background-color: rgba(249, 246, 182, 0.9); }
 
+.container-home-inf {
+  background-color: rgba(249, 246, 182, 0.9); }
+
 .navbar-brand {
   line-height: 50px; }
 
@@ -7054,7 +7057,7 @@ body {
   background-image: url("../images/intro_smaller.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 70vh;
+  height: 68vh;
   color: white; }
 
 .container-home .card {
@@ -7072,5 +7075,8 @@ body {
 .container-info-plant2 {
   background-color: rgba(239, 237, 237, 0.8);
   border-radius: 5px; }
+
+.clearfix {
+  clear: both; }
 
 /*# sourceMappingURL=style.css.map */
