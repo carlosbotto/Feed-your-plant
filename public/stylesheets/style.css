@@ -1,3 +1,6 @@
+@font-face {
+  src: url(superclarendon.woff); }
+
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
@@ -7020,9 +7023,12 @@ a.text-dark:hover, a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6; } }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4 {
   font-family: superclarendon;
   font-weight: bold; }
+
+h4 {
+  color: #19975d; }
 
 .navbar-light .navbar-nav .nav-link {
   color: #19975d; }
@@ -7030,21 +7036,11 @@ h1, h2, h3, h4, h5 {
 .container-index {
   background-color: rgba(249, 246, 182, 0.9); }
 
-@font-face {
-  src: url(superclarendon.woff); }
-
-.navbar-light .navbar-brand {
-  color: rgba(0, 0, 0, 0.9);
-  color: #19975d; }
-
 .navbar-brand {
   line-height: 50px; }
 
 * {
   font-family: monospace; }
-
-.navbar.a {
-  color: #19975d; }
 
 body {
   padding: 0px;

@@ -1,10 +1,22 @@
+
+// * {
+//   border: 2px red solid;
+// }
+
+@font-face {
+  src: url(superclarendon.woff);
+}
 $primary: rgba(249, 246, 182, 0.9);
 
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4 {
   font-family: superclarendon;
   font-weight: bold;
+}
+
+h4 {
+  color: #19975d;
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -15,15 +27,12 @@ h1, h2, h3, h4, h5 {
   background-color: rgba(249, 246, 182, 0.9);
 }
 
-@font-face {
-  //font-family: superclarendon;
-  src: url(superclarendon.woff);
-}
 
-.navbar-light .navbar-brand {
-  color: rgba(0, 0, 0, 0.9);
-  color: #19975d;
-}
+
+// .navbar-light .navbar-brand {
+//   color: rgba(0, 0, 0, 0.9);
+//   color: #19975d;
+// }
 
 .navbar-brand {
   line-height: 50px;
@@ -33,9 +42,9 @@ h1, h2, h3, h4, h5 {
   font-family: monospace;
 }
 
-.navbar.a {
-  color: #19975d;
-}
+// .navbar.a {
+//   color: #19975d;
+// }
 
 body {
   padding: 0px;
@@ -48,7 +57,6 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   height: 70vh;
-
   color: white;
 }
 
