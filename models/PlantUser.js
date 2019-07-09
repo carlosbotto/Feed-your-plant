@@ -5,20 +5,19 @@ const plantUserSchema = new Schema(
   {
     name: String,
     description: String,
-    picPath: String,
+    picPath: { type: String, default: "/images/default-avatar.png"},
     waterFrequencyInDays: {
       type: Number,
-      enum: [1, 2, 3, 4, 5, 6, 7, 15, 30],
       default: 1
     },
     _user: {
       type: Schema.Types.ObjectId,
       ref: "User"
     },
-    _plant: {
-      type: Schema.Types.ObjectId,
-      ref: "Plant"
-    },
+    // _plantFamily: {
+    //   type: Schema.Types.ObjectId,
+    //   ref: "PlantFamily"
+    // },
   },
 
   {

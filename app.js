@@ -58,6 +58,30 @@ hbs.registerHelper('ifUndefined', (value, options) => {
       return options.fn(this);
   }
 });
+
+hbs.registerHelper('ifShouldDisplayLink', (link, user, options) => {
+  if ((!link.forConnectedUsers && !link.forDisconnectedUsers) || (link.forConnectedUsers && user) || (link.forDisconnectedUsers && !user)) {
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
+});
+
+hbs.registerHelper('ifEquals', (value1, value2, options) => {
+  if (value1 === value2) {
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
+});
+
+hbs.registerHelper('ifStartsWith', (longValue, shortValue, options) => {
+  if (longValue.startsWith(shortValue)) {
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
+});
   
 
 // default value for title local
@@ -75,11 +99,21 @@ app.use(flash());
 require('./passport')(app);
     
 // Middleware always executed before the routes
-app.use((req,res,next) => {
-  console.log("Own middleware")
-  res.locals.user = req.user // Define a view variable "user" that is req.user
-  next()
-})
+app.use((req, res, next) => {
+  console.log("Own middleware");
+  res.locals.user = req.user; // Define a view variable "user" that is req.user
+  res.locals.url = req.url; // Define a view variable "url" that is req.user
+  res.locals.navlinks = [
+    { name: "Plants", href: "/plants" },
+    { name: "Calendar", href: "/calendar" },
+    { name: "My garden", href: "/profile", forConnectedUsers: true },
+    { name: "Add Plant", href: "/add-plant", forConnectedUsers: true },
+    { name: "Logout", href: "/auth/logout", forConnectedUsers: true },
+    { name: "Login", href: "/auth/login", forDisconnectedUsers: true },
+    { name: "Signup", href: "/auth/signup", forDisconnectedUsers: true },
+  ];
+  next();
+});
 
 app.use('/', require('./routes/index'));
 app.use('/auth', require('./routes/auth'));

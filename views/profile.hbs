@@ -50,13 +50,16 @@
 
 
 {{#each plantUsers}}
-<div class="card-deck"  style="width: 18rem; display: flex">
+<div class="card-deck" style="width: 18rem; display: flex">
   <img src="{{ picPath }}" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">{{ name }}</h5>
-    <p class="card-text">{{ description }}</p>
+    <p class="card-text">
+      {{ description }} <br>
+      To water every {{ waterFrequencyInDays }} days
+    </p>
   </div>
-  
+
   <div class="card-body">
     <a href="/edit-plant-user/{{ _id }}" class="card-link">Edit</a>
     <a href="/remove-plant/{{ _id }}" class="card-link">Remove</a>

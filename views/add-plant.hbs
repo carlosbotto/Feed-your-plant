@@ -5,23 +5,31 @@
 
   {{!-- This input to define a req.body.name --}}
   <label>Name</label>
-  <input class="form-control" type="text" name="name">
+  <input class="form-control" type="text" name="name" value="{{plant.name}}">
   <br>
 
   {{!-- This input to define a req.body.description --}}
   <label>Description</label>
-  <textarea class="form-control" name="description" rows="5" cols="20"></textarea>
+  <textarea class="form-control" name="description" rows="5" cols="20">{{plant.description}}</textarea>
   <br>
 
   {{!-- This input to define a req.body.waterFrequencyInDays --}}
   <label>Water frequency every (x) days</label>
-  <input class="form-control" type="text" name="waterFrequencyInDays">
+  <input class="form-control" type="text" name="waterFrequencyInDays" value="{{plant.waterFrequencyInDays}}">
   <br>
+
+  {{#if plant.picPath}}
+  <label>Default Photo</label><br>
+  <img src="{{plant.picPath}}" alt="" class="img-fluid">
+  <input value="{{plant.picPath}}" name="picPath" type="hidden">
+  <br>
+  <br>
+  {{/if}}
 
 
   {{!-- This input to define a req.file, because of `uploadCloud.single("photo")` in routes/index.js  --}}
 
-  <label>Photo</label>
+  <label>Choose your own Photo (optional)</label>
   <input class="form-control" type="file" name="photo">
   <br>
 
@@ -29,4 +37,4 @@
   {{!-- <a class="btn btn-success btn-sm " href="/profile" role="button">Add to my garden</a> --}}
 </form>
 
-
+<br><br>

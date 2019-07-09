@@ -10,7 +10,7 @@
 
   {{!-- This input to define a req.body.description --}}
   <label>Description</label>
-  <textarea class="form-control" type="text" name="description" rows="5" cols="20" value="{{plantUsers.description}}"></textarea>
+  <textarea class="form-control" type="text" name="description" rows="5" cols="20">{{plantUsers.description}}</textarea>
   <br>
 
   {{!-- This input to define a req.body.waterFrequencyInDays --}}
@@ -18,8 +18,13 @@
   <input class="form-control" type="text" name="waterFrequencyInDays" value="{{plantUsers.waterFrequencyInDays}}">
   <br>
 
+  <label>Photo</label> <br>
+  <img src="{{plantUsers.picPath}}" alt="" class="img-fluid">
+  <br>
+  <br>
+
   {{!-- This input to define a req.file, because of `uploadCloud.single("photo")` in routes/index.js  --}}
-  <label>Photo</label>
+  <label>Change Photo (optional)</label>
   <input class="form-control" type="file" name="photo" value="{{plantUsers.picPath}}">
   <br>
 

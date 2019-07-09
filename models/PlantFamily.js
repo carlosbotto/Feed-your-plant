@@ -1,14 +1,14 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const plantSchema = new Schema(
+const plantFamilySchema = new Schema(
   {
     name: { type: String, required: true, unique: true },
     picPath: { type: String, required: true },
     description: { type: String, required: true },
     waterFrequencyInDays: {
       type: Number,
-      enum: [1, 2, 3, 4, 5, 6, 7, 15, 30] 
+      default: 1
     },
   },
   {
@@ -19,5 +19,5 @@ const plantSchema = new Schema(
   }
 );
 
-const Plant = mongoose.model("Plant", plantSchema);
-module.exports = Plant;
+const PlantFamily = mongoose.model("PlantFamily", plantFamilySchema);
+module.exports = PlantFamily;

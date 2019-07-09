@@ -1,15 +1,15 @@
 {{#each plants}}
 
-<div class="jumbotron jumbotron-plants" style="background-image: url({{picPath}})">
-  <h1 class="display-6" style="color:white; text-shadow: -3px 1px 6px rgb(161, 161, 92)">{{name}}</h1>
+<div class="jumbotron jumbotron-plants" style="background-image: url({{this.picPath}})">
+  <h1 class="display-6" style="color:white; text-shadow: -3px 1px 6px rgb(161, 161, 92)">{{this.name}}</h1>
   <div class="container-info-plant">
-    <h6 style="padding: 10px; color:rgba(249, 246, 182, 0.9)">Should feed {{waterFrequencyInDays}} times per week</h6>
+    <h6 style="padding: 10px; color:rgba(249, 246, 182, 0.9)">Should feed {{this.waterFrequencyInDays}} times per week</h6>
   </div>
   <div class="container-info-plant2">
-    <p style="padding: 10px;"><strong>Water requirements:</strong> {{description}}</p>
+    <p style="padding: 10px;"><strong>Water requirements:</strong> {{this.description}}</p>
   </div>
   <div class="text-right">
-    <a class="btn btn-primary btn-sm " href="/profile" role="button">Add to my garden</a>
+    <a class="btn btn-primary btn-sm " href="/add-plant?plantFamilyId={{this._id}}" role="button">Add to my garden</a>
   </div>
 </div>
 

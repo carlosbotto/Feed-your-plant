@@ -1,5 +1,5 @@
 const express = require("express");
-const Plant = require("../models/Plant");
+const PlantFamily = require("../models/PlantFamily");
 const PlantUser = require("../models/PlantUser");
 const { checkLogin } = require("../middlewares");
 const multer = require("multer");
@@ -16,15 +16,16 @@ router.get("/", (req, res, next) => {
 
 // GET profile-my-garden page
 router.get("/profile", checkLogin, (req, res, next) => {
-  PlantUser.find({ _user: req.user._id }) // To filter the plants of each user
-  .then(plantUsers => {
-    res.render("profile", { user: req.user, plantUsers }); // When connected, req.user is defined
-  })
+  PlantUser
+    .find({ _user: req.user._id }) // To filter the plants of each user
+    .then(plantUsers => {
+      res.render("profile", { user: req.user, plantUsers }); // When connected, req.user is defined
+    });
 });
 
 // GET plants page
 router.get("/plants", (req, res, next) => {
-  Plant
+  PlantFamily
   .find()
   .sort( {name: 1} ) // To sort the plant by alphabetical order
   .then(plants => {
@@ -37,17 +38,24 @@ router.get("/plants", (req, res, next) => {
 // CREATE
 // Route to display a form
 router.get("/add-plant", checkLogin, (req, res, next) => {
-  PlantUser
-  .find()
-  .then(plantUsers => {
-    res.render('add-plant', {plantUsers})
-  })
+  let { plantFamilyId } = req.query
+  if (!plantFamilyId) {
+    res.render("add-plant");
+  }
+  else {
+    PlantFamily.findById(plantFamilyId).then(plant => {
+      res.render("add-plant", { plant });
+    });
+  }
 });
 
 // Route to handle the form
 router.post('/add-plant', checkLogin, uploadCloud.single('photo'), (req, res, next) => {
-  const { name, description, waterFrequencyInDays } = req.body;
-  const picPath = req.file.url;
+  let { name, description, waterFrequencyInDays, picPath } = req.body;
+  // If req.file is defined, it means the user has uploaded a picture and so we modify the picPath
+  if (req.file) {
+    picPath = req.file.url // or .secure_url
+  }
   const _user = req.user._id;
   // const _plant = req.plant._id;
   const newPlantUser = new PlantUser({name, description, waterFrequencyInDays, picPath, _user})
@@ -73,15 +81,16 @@ router.get("/edit-plant-user/:plantUserId", checkLogin, (req, res, next) => {
 
 // Route to handle the form
 router.post("/edit-plant-user/:plantUserId", checkLogin, uploadCloud.single('photo'), (req, res, next) => {
-  PlantUser
-  .findByIdAndUpdate(req.params.plantUserId, {
+  let updates = {
     name: req.body.name,
     description: req.body.description,
     waterFrequencyInDays: req.body.waterFrequencyInDays,
-    picPath: req.file.url,
-    // _user: req.user._id
-    // _plant: req.plant._id;
-  }).then(plantUsers => {
+  }
+  if (req.file) {
+    updates.picPath = req.file.url
+  }
+  PlantUser
+  .findByIdAndUpdate(req.params.plantUserId, updates).then(plantUsers => {
     // Redirect to the profile-my-garden
     res.redirect('/profile');
   });
