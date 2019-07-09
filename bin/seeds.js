@@ -59,7 +59,7 @@ let plants = [
   {
     name: "Monstera",
     waterFrequencyInDays: 4,
-    picPath: "/images/DB_plants/monstera_.jpg",
+    picPath: "/images/DB_plants/Monstera.jpg",
     description: "Water your monstera directly into the pot so not to moisten foliage and just enough to keep the soil from completely drying out. Your Monstera is somewhat drought tolerant, so you don’t need to worry about keeping up with the watering all the time. Don’t allow the pot to stand in water, as this will cause root rot."
   },
   {
