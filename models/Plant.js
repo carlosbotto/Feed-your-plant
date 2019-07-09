@@ -4,13 +4,12 @@ const Schema = mongoose.Schema;
 const plantSchema = new Schema(
   {
     name: { type: String, required: true, unique: true },
-    waterFrquencyInDays: Number,
     picPath: { type: String, required: true },
     description: { type: String, required: true },
-    status: {
-      type: String,
-      enum: ["Decoration", "Fruits/Vegetables"]
-    }
+    waterFrequencyInDays: {
+      type: Number,
+      enum: [1, 2, 3, 4, 5, 6, 7, 15, 30] 
+    },
   },
   {
     timestamps: {

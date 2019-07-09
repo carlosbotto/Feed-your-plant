@@ -5,9 +5,11 @@ const plantUserSchema = new Schema(
   {
     name: String,
     description: String,
-    picPath: 
-    { type: String,
-      //required: true
+    picPath: String,
+    waterFrequencyInDays: {
+      type: Number,
+      enum: [1, 2, 3, 4, 5, 6, 7, 15, 30],
+      default: 1
     },
     _user: {
       type: Schema.Types.ObjectId,

@@ -22,7 +22,10 @@ router.get("/profile", checkLogin, (req, res, next) => {
 });
 
 router.get("/plants", (req, res, next) => {
-  Plant.find().then(plants => {
+  Plant
+  .find()
+  .sort( {name: 1} ) // To sort the plant by alphabetical order
+  .then(plants => {
     res.render("plants", {
       plants: plants
     });
@@ -37,11 +40,11 @@ router.get("/add-plant", checkLogin, (req, res, next) => {
 });
 
 router.post('/add-plant', checkLogin, uploadCloud.single('photo'), (req, res, next) => {
-  const { name, description } = req.body;
+  const { name, description, waterFrequencyInDays } = req.body;
   const picPath = req.file.url;
   const _user = req.user._id;
   // const _plant = req.plant._id;
-  const newPlantUser = new PlantUser({name, description, picPath, _user})
+  const newPlantUser = new PlantUser({name, description, waterFrequencyInDays, picPath, _user})
   newPlantUser.save()
   .then( photo => {
     res.redirect('/profile'); // Once the plant is created, go to profile to display it
