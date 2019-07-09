@@ -1,1 +1,16 @@
 plants
+
+{{#each plants}}
+
+<div class="jumbotron jumbotron-plants" style="background-image: url({{picPath}})">
+    <h1 class="display-4" style="color:white">{{name}}</h1>
+  <div class="container-info-plant">
+    <p class="lead"></p>
+    
+    <p>Water requirements: {{description}}</p>
+    <p>Should feed {{waterFrquencyInDays}}X per month</p>
+    <a class="btn btn-primary btn-lg" href="#" role="button">Add to my garden</a>
+    </div>
+  </div>
+
+  {{/each}}

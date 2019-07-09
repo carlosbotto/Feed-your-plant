@@ -7,3 +7,4 @@ $ npm install --save  multer
 $ npm install --save cloudinary multer-storage-cloudinary multer
 
 
+$ node bin/seeds.js

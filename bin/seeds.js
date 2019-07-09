@@ -11,16 +11,17 @@ const Plant = require("../models/Plant");
 const bcryptSalt = 10;
 
 mongoose
-  .connect('mongodb://localhost/feed-your-plant', {useNewUrlParser: true})
+  .connect("mongodb://localhost/feed-your-plant", { useNewUrlParser: true })
   .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+    console.log(
+      `Connected to Mongo! Database name: "${x.connections[0].name}"`
+    );
   })
   .catch(err => {
-    console.error('Error connecting to mongo', err)
-});
+    console.error("Error connecting to mongo", err);
+  });
 
 //_____________________________________________
-
 
 let users = [
   {
@@ -33,54 +34,51 @@ let users = [
     password: bcrypt.hashSync("bob", bcrypt.genSaltSync(bcryptSalt)),
     email: "bob@gmail.com"
   }
-]
-
+];
 
 User.deleteMany()
-.then(() => {
-  return User.create(users)
-})
-.then(usersCreated => {
-  console.log(`${usersCreated.length} users created with the following id:`);
-  console.log(usersCreated.map(u => u._id));
-})
-.then(() => {
-  // Close properly the connection to Mongoose
-  mongoose.disconnect()
-})
-.catch(err => {
-  mongoose.disconnect()
-  throw err
-})
+  .then(() => {
+    return User.create(users);
+  })
+  .then(usersCreated => {
+    console.log(`${usersCreated.length} users created with the following id:`);
+    console.log(usersCreated.map(u => u._id));
+  })
+  .then(() => {
+    // Close properly the connection to Mongoose
+    mongoose.disconnect();
+  })
+  .catch(err => {
+    mongoose.disconnect();
+    throw err;
+  });
 
 //_____________________________________________
 
-
-let plants = [
+let plants = [
   {
-    name: "Monstera", 
+    name: "Monstera",
     waterFrquencyInDays: 4,
-    picPath: "String",
-    description: "Lorem ipsu",
-    status: "Decoration"
+    picPath: "../images/DB_plants/Monstera.jpg",
+    description: "When its soil becomes dry to a depth of 1-2”, water your monstera directly into the pot so not to moisten foliage and just enough to keep the soil from completely drying out. Your Monstera is somewhat drought tolerant, so you don’t need to worry about keeping up with the watering all the time. Don’t allow the pot to stand in water, as this will cause root rot.",
   },
   {
-    name: "Ficus Benjamino", 
+    name: "Ficus Benjamino",
     waterFrquencyInDays: 9,
     picPath: "String",
     description: "Lorem ipsu Ficusssssssss",
-    status: "Decoration"
-  },
-]
-
+    
+  }
+];
 
 Plant.deleteMany()
   .then(() => {
-    return Plant.create(plants)
+    return Plant.create(plants);
   })
   .then(createdDocuments => {
-    console.log(createdDocuments.length + " documents have been created in the collection 'plants'");
+    console.log(
+      createdDocuments.length +
+        " documents have been created in the collection 'plants'"
+    );
     mongoose.connection.close();
-  })
-
-
+  });

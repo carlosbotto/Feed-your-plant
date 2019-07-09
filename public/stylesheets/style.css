@@ -1,3 +1,6 @@
+* {
+  border: 2px red solid; }
+
 @font-face {
   src: url(superclarendon.woff); }
 
@@ -7047,7 +7050,7 @@ body {
   font-family: monospace;
   font-size: 16px; }
 
-.jumbotron {
+.jumbotron-home {
   background-image: url("../images/intro.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -7056,5 +7059,12 @@ body {
 
 .container-home .card {
   border: none; }
+
+.jumbotron-plants {
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.container-info-plant {
+  background-color: rgba(249, 246, 182, 0.8); }
 
 /*# sourceMappingURL=style.css.map */
