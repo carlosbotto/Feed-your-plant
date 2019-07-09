@@ -1,0 +1,28 @@
+<h2>Edit your Plant</h2>
+
+{{!-- Post form with enctype="multipart/form-data" (To update files) --}}
+<form action="/edit-plant-user/{{plantUsers._id}}" method="post" enctype="multipart/form-data">
+
+  {{!-- This input to define a req.body.name --}}
+  <label>Name</label>
+  <input class="form-control" type="text" name="name" value="{{plantUsers.name}}">
+  <br>
+
+  {{!-- This input to define a req.body.description --}}
+  <label>Description</label>
+  <textarea class="form-control" type="text" name="description" rows="5" cols="20" value="{{plantUsers.description}}"></textarea>
+  <br>
+
+  {{!-- This input to define a req.body.waterFrequencyInDays --}}
+  <label>Water frequency every (x) days</label>
+  <input class="form-control" type="text" name="waterFrequencyInDays" value="{{plantUsers.waterFrequencyInDays}}">
+  <br>
+
+  {{!-- This input to define a req.file, because of `uploadCloud.single("photo")` in routes/index.js  --}}
+  <label>Photo</label>
+  <input class="form-control" type="file" name="photo" value="{{plantUsers.picPath}}">
+  <br>
+
+  <input type="submit" value="SAVE" class="btn btn-primary">
+  {{!-- <a class="btn btn-success btn-sm " href="/profile" role="button">Edit in my garden</a> --}}
+</form>
