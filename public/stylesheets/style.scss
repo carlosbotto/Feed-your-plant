@@ -1,7 +1,6 @@
-
-* {
-  border: 2px red solid;
-}
+// * {
+//   border: 2px red solid;
+// }
 
 @font-face {
   src: url(superclarendon.woff);
@@ -10,7 +9,10 @@ $primary: rgba(249, 246, 182, 0.9);
 
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: superclarendon;
   font-weight: bold;
 }
@@ -23,16 +25,9 @@ h4 {
   color: #19975d;
 }
 
-.container-index{
+.container-index {
   background-color: rgba(249, 246, 182, 0.9);
 }
-
-
-
-// .navbar-light .navbar-brand {
-//   color: rgba(0, 0, 0, 0.9);
-//   color: #19975d;
-// }
 
 .navbar-brand {
   line-height: 50px;
@@ -41,10 +36,6 @@ h4 {
 * {
   font-family: monospace;
 }
-
-// .navbar.a {
-//   color: #19975d;
-// }
 
 body {
   padding: 0px;
@@ -67,8 +58,11 @@ body {
 .jumbotron-plants {
   background-repeat: no-repeat;
   background-size: cover;
+  
 }
 
 .container-info-plant {
-  background-color: rgba(249, 246, 182, 0.8);
+  background-color:  #19975cb8;
+  //background-color: rgba(249, 246, 182, 0.8);
+  border-radius: 5px;
 }
