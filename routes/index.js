@@ -1,4 +1,5 @@
 const express = require("express");
+const User = require("../models/User");
 const PlantFamily = require("../models/PlantFamily");
 const PlantUser = require("../models/PlantUser");
 const { checkLogin } = require("../middlewares");
@@ -22,6 +23,29 @@ router.get("/profile", checkLogin, (req, res, next) => {
       res.render("profile", { user: req.user, plantUsers }); // When connected, req.user is defined
     });
 });
+
+// EDIT THE PROFILE
+// Route to display a form
+router.get("/edit-email/:userId", checkLogin, (req, res, next) => {
+  User
+  .findById(req.params.userId)
+  .then(user => {
+    res.render("edit-email", {
+      user: user
+    })
+  });
+});
+
+// Route to handle the form
+router.post("/edit-email/:userId", checkLogin, (req, res, next) => {
+  User.findByIdAndUpdate(req.params.userId, {
+  email: req.body.email
+  })
+    .then(user => {
+    res.redirect("/profile");
+  });
+});
+
 
 // GET plants page
 router.get("/plants", (req, res, next) => {
@@ -69,7 +93,7 @@ router.post('/add-plant', checkLogin, uploadCloud.single('photo'), (req, res, ne
   })
 });
 
-// EDIT
+// EDIT THE PLANT-USER
 // Route to display a form
 router.get("/edit-plant-user/:plantUserId", checkLogin, (req, res, next) => {
   PlantUser
