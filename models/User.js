@@ -15,10 +15,14 @@ const userSchema = new Schema(
       type: String,
       enum: ["Noobie", "Green thumb", "Plant lover"]
     }
+    // created: { 
+    //   type: Date,
+    //   default: Date.now
+    // }
   },
   {
     timestamps: {
-      createdAt: "created_at",
+      createdAt: "created_at", 
       updatedAt: "updated_at"
     }
   }
