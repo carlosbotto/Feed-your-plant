@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> d02d37a16b0877197aa6d7bbd07de43621e587b7
 // * {
 //   border: 2px red solid;
 // }
@@ -10,6 +6,7 @@
   src: url(superclarendon.woff);
 }
 $primary: rgba(249, 246, 182, 0.9);
+$success: #19975cc8;
 
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
@@ -48,7 +45,7 @@ body {
 }
 
 .jumbotron-home {
-  background-image: url("../images/intro.jpg");
+  background-image: url("../images/intro_smaller.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 70vh;
@@ -65,8 +62,13 @@ body {
   
 }
 
-.container-info-plant {
-  background-color:  #19975cb8;
-  //background-color: rgba(249, 246, 182, 0.8);
+.container-info-plant{
+  background-color: #0e7e4aac;
+  border-radius: 5px;
+  max-width: 295px;
+}
+.container-info-plant2 {
+  background-color: rgba(213, 213, 213, 0.9);
   border-radius: 5px;
 }
+
