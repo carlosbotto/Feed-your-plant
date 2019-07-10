@@ -90,17 +90,20 @@ body {
   clear:both;
 }
 
- .container.mt-4.container-grow.flex-grow-1{
+.container.mt-4.container-grow.flex-grow-1{
    flex-grow:1;
    min-height:79vh;
    //border:3px solid purple;
- }
+}
 
- nav, footer{
+nav, footer{
    flex-grow:0;
    //border: 3px solid yellow;
- }
+}
 
-// .clearfix{
-//   clear:both;
-// }
+@media only screen and (max-width: 725px) {
+  member {
+    font-size: 16px;
+  }
+}
+  

@@ -1,15 +1,14 @@
 <div class="container-fluid">
-  <h1 class="display-4">Hello, {{user.username}}!</h1>
-  <p class="lead">This is your Garden. Here you can manage all of your plants.</p>
+  <h1 class="display-4 d-inline-block" style="font-size:44px">Hello, {{user.username}}!<span id="member" style="font-size:12px">Member since: {{formatDate user.created_at}}</span></h1>
+  <p class="lead"  style="color:#0e7e4a">This is your Garden. Here you can manage all of your plants.</p>
   <p>Your email: {{user.email}}</p>
-  <a class="btn btn-primary" href="/edit-email/{{user._id}}" role="button">Edit</a>
-  <br>
-  <br>
-  <p><small class="text-muted">Member since: {{formatDate user.created_at}}</small></p>
+  <a class="btn btn-primary" href="/edit-email/{{user._id}}" role="button">Edit email</a>
+  <br><br>
+  
+  <p><small class="text-muted d-inline-block">Member since: {{formatDate user.created_at}}</small></p>
   <hr class="my-4">
   <a class="btn btn-primary btn-lg" href="/add-plant" role="button">Add plant</a>
-  <br>
-  <br>
+  
 </div>
 
 {{!-- {{#each plantUsers}}
@@ -39,32 +38,13 @@
   <div class="card" style="min-width: 18rem; max-width: 22rem;">
     <img src="{{ picPath }}" class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title">{{ name }}</h5>
-      <p class="card-text">{{ description }}</p>
+      <h5 class="card-title" style="font-size:24px">{{ name }}</h5>
+      <hr>
+      <p class="card-text" style="font-size:14px">{{ description }}</p>
     </div>
     <div class="card-footer">
       <small class="text-muted">Last updated 3 mins ago</small>
     </div>
   </div>
   {{/each}}
-  {{!-- <div class="card">
-    <img src="{{ picPath }}" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">{{ name }}</h5>
-      <p class="card-text">{{ description }}</p>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted">Last updated 3 mins ago</small>
-    </div>
-  </div>
-  <div class="card">
-    <img src="{{ picPath }}" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">{{ name }}</h5>
-      <p class="card-text">{{ description }}</p>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted">Last updated 3 mins ago</small>
-    </div>
-  </div> --}}
 </div>
