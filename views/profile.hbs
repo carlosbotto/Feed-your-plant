@@ -4,9 +4,12 @@
   <p>Your email: {{user.email}}</p>
   <a class="btn btn-primary" href="/edit-email/{{user._id}}" role="button">Edit</a>
   <br>
+  <br>
   <p><small class="text-muted">Member since: {{user.created_at}}</small></p>
   <hr class="my-4">
   <a class="btn btn-primary btn-lg" href="/add-plant" role="button">Add plant</a>
+  <br>
+  <br>
 </div>
 
 {{#each plantUsers}}
