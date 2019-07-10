@@ -27,3 +27,6 @@ $ heroku run node bin/seeds.js
 
 If error:
 $ heroku logs --tail
+
+## Nodemailer
+$ npm install nodemailer

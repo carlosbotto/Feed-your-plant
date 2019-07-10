@@ -83,6 +83,16 @@ hbs.registerHelper('ifStartsWith', (longValue, shortValue, options) => {
   }
 });
 
+hbs.registerHelper('shouldWater', (plantUser, day, options) => {
+  console.log("DEBUG", plantUser.created_at, day)
+  let diffInDays = Math.ceil((day-plantUser.created_at)/1000/60/60/24)
+  if (diffInDays % plantUser.waterFrequencyInDays === 0) {
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
+});
+
 // TO DISPLAY A NICE DATE FORMAT
 // New HBS helper 
 // To use it in a .hbs file:
@@ -98,6 +108,12 @@ hbs.registerHelper('formatDate', (date) => {
 function getOrdinalNum(n) {
   return n + (n > 0 ? ['th', 'st', 'nd', 'rd'][(n > 3 && n < 21) || n % 10 > 3 ? 0 : n % 10] : '');
 }
+
+// TO DISPLAY WEEKDAY 
+hbs.registerHelper('weekDay', (date) => {
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  return days[date.getDay()]
+});
 
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';

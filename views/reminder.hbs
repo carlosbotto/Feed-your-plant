@@ -1,1 +1,41 @@
-<h1>reminder</h1>
+<h1>NODEMAILER</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      {{#each days}}
+      <th>{{formatDate this}}</th>
+      {{/each}}
+    </tr>
+  </thead>
+  <tbody>
+    {{#each plantUsers}}
+    <tr>
+      <td>{{ name }}, {{weekDay created_at}}, {{waterFrequencyInDays}}</td>
+      {{#each ../days}}
+      <td>
+        {{!-- ../this is for the current plantUsers and this is for the current days --}}
+        {{#shouldWater ../this this}}
+          💧
+        {{else}}
+          No
+        {{/shouldWater}}
+      </td>
+      {{/each}}
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+
+
+<form action="/reminder" method="post">
+  <label for="">Email</label>
+  <input type="email" name="email" id="">
+  <label for="">Subject</label>
+  <input type="text" name="subject" id="">
+  <label for="">Message</label>
+  <textarea type="text" name="message" id=""></textarea>
+  <button type="submit">Submit</button>
+</form>
