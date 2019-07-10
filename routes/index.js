@@ -183,7 +183,9 @@ router.get("/send-email", checkLogin, (req,res,next) => {
             }
             
             let html = `
-              <h2>Hello</h2>
+            <h2 style="color:green; font-family: superclarendon;">Hello ${user.username}, don't forget to water your plants :)</h2>
+            
+            <img src="../images/losango-plant2"/>
               <table>
                 <thead>
                   <tr>
@@ -201,11 +203,13 @@ router.get("/send-email", checkLogin, (req,res,next) => {
                 </tbody>
               </table>
             `
+            
             console.log("DEBUG", html)
             transporter.sendMail({
-              from: '"Reminder 🌿" <feedyourplant@gmail.com>',
+              filename: 'losango-plant2',
+              from: '"Feed your Plant 🌿" <feedyourplant@gmail.com>',
               to: user.email, 
-              subject: "Reminder 🌿", 
+              subject: "Watering Reminder", 
               html: html
             })
           })

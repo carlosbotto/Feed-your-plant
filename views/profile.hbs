@@ -1,14 +1,11 @@
 <div class="container-fluid">
-  <h2 >Hello, {{user.username}}!<span id="member" style="font-size:12px">Member since: {{formatDate user.created_at}}</span></h1>
+  <h2  style="margin-bottom:-2px">Hello, {{user.username}}!</h1>
+  <p><small class="text-muted d-inline-block">Member since: {{formatDate user.created_at}}</small></p>
   <p class="lead"  style="color:#0e7e4a">This is your Garden. Here you can manage all of your plants.</p>
-  <p>Your email: {{user.email}}</p>
-  <a class="btn btn-primary" href="/edit-email/{{user._id}}" role="button">Edit email</a>
-  <br><br>
+  <p><a class="btn btn-outline-secondary btn-sm" href="/edit-email/{{user._id}}" role="button">edit</a><span>{{user.email}}</span></p>
   
   <a class="btn btn-primary btn-lg pull-right" href="/add-plant" role="button">Add plant</a>
-  <p><small class="text-muted d-inline-block">Member since: {{formatDate user.created_at}}</small></p>
   <hr class="my-4">
-  
 </div>
       
 <div class="card-deck">
