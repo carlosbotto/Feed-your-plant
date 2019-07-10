@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 
-<body>
+<body class="d-flex">
   <nav class="navbar navbar-expand-sm navbar-light bg-primary">
     <div class="container">
       <a class="navbar-brand" href="/">
@@ -63,15 +63,15 @@
 
 
 
-  {{#unless homePage}}<div class="container mt-4">{{/unless}}
+  {{#unless homePage}}<div class="container mt-4 container-grow flex-grow-1">{{/unless}}
     {{{body}}}
   {{#unless homePage}}</div>{{/unless}}
 
 
-<footer class="page-footer font-small blue">
+<footer class="footer">
 
   <!-- Copyright -->
-  <div class="footer-copyright text-center py-3" style="background-color:rgba(249, 246, 182, 0.9);">© 2019 Copyright: Giulia Gallorini | Carlos Botto
+  <div class="footer-copyright text-center py-3" style="background-color:rgba(249, 246, 182, 0.9)">© 2019 Copyright: Giulia Gallorini | Carlos Botto
   </div>
   <!-- Copyright -->
 
