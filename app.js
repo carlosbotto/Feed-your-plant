@@ -83,6 +83,7 @@ hbs.registerHelper('ifStartsWith', (longValue, shortValue, options) => {
   }
 });
 
+// To define when the plant should be watered
 hbs.registerHelper('shouldWater', (plantUser, day, options) => {
   console.log("DEBUG", plantUser.created_at, day)
   let diffInDays = Math.ceil((day-plantUser.created_at)/1000/60/60/24)
@@ -93,7 +94,7 @@ hbs.registerHelper('shouldWater', (plantUser, day, options) => {
   }
 });
 
-// TO DISPLAY A NICE DATE FORMAT
+// TO DISPLAY A NICE DATE FORMAT 
 // New HBS helper 
 // To use it in a .hbs file:
 // {{formatDate myDate}}
@@ -109,14 +110,14 @@ function getOrdinalNum(n) {
   return n + (n > 0 ? ['th', 'st', 'nd', 'rd'][(n > 3 && n < 21) || n % 10 > 3 ? 0 : n % 10] : '');
 }
 
-// TO DISPLAY WEEKDAY 
-hbs.registerHelper('weekDay', (date) => {
+// TO DISPLAY DATE ON TABLE 
+hbs.registerHelper('formatDateTable', (date) => {
+  let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];  
   let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-  return days[date.getDay()]
+  return days[date.getDay()] + ' '
+  + (date.getDate()) + ' '
+  + (months[date.getMonth()])
 });
-
-// default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
 
 // Enable authentication using session + passport
 app.use(session({

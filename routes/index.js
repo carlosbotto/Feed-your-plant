@@ -153,34 +153,12 @@ router.get("/reminder", checkLogin, (req, res, next) => {
     });
 });
 
-// POST reminder
-router.post('/reminder', (req, res, next) => {
-  let { email, subject, message } = req.body;
-  let transporter = nodemailer.createTransport({
-    service: 'Gmail',
-    auth: {
-      user: process.env.GMAIL_USER,
-      pass: process.env.GMAIL_PASS
-    }
-  });
-  transporter.sendMail({
-    from: '"My Awesome Project 👻" <myawesome@project.com>',
-    to: email, 
-    subject: subject, 
-    text: message,
-    html: `<b>${message}</b>`
-  })
-  .then(info => res.render('reminder-sent', {email, subject, message, info}))
-  .catch(error => console.log(error));
-});
-
 function shouldWater(plantUser, day) {
   let diffInDays = Math.ceil((day-plantUser.created_at)/1000/60/60/24)
   return (diffInDays % plantUser.waterFrequencyInDays === 0) 
 }
 
-
-router.get("/send-email", (req,res,next) => {
+router.get("/send-email", checkLogin, (req,res,next) => {
   // TODO: send emails to everyone with the schedule
   let transporter = nodemailer.createTransport({
     service: 'Gmail',
@@ -225,7 +203,7 @@ router.get("/send-email", (req,res,next) => {
             `
             console.log("DEBUG", html)
             transporter.sendMail({
-              from: '"Reminder 🌿" <myawesome@project.com>',
+              from: '"Reminder 🌿" <feedyourplant@gmail.com>',
               to: user.email, 
               subject: "Reminder 🌿", 
               html: html
@@ -233,7 +211,15 @@ router.get("/send-email", (req,res,next) => {
           })
       }
     })
-  res.json("Hello")
-})
+  // res.json("Hello")
+  .then(info => res.redirect('/reminder-sent'))
+  // {email, subject, html, message, info}
+  .catch(error => console.log(error));
+});
+
+// GET reminder sent
+router.get("/reminder-sent", (req, res, next) => {
+  res.render("reminder-sent");
+});
 
 module.exports = router;
