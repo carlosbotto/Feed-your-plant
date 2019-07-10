@@ -7049,9 +7049,11 @@ h4 {
   font-family: monospace; }
 
 body {
+  display: flex;
   padding: 0px;
   font-family: monospace;
-  font-size: 16px; }
+  font-size: 16px;
+  flex-direction: column; }
 
 .jumbotron-home {
   background-image: url("../images/intro_smaller.jpg");
@@ -7075,5 +7077,15 @@ body {
 .container-info-plant2 {
   background-color: rgba(239, 237, 237, 0.8);
   border-radius: 5px; }
+
+.clearfix {
+  clear: both; }
+
+.container.mt-4.container-grow.flex-grow-1 {
+  flex-grow: 1;
+  min-height: 79vh; }
+
+nav, footer {
+  flex-grow: 0; }
 
 /*# sourceMappingURL=style.css.map */
