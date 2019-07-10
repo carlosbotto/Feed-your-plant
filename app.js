@@ -82,11 +82,25 @@ hbs.registerHelper('ifStartsWith', (longValue, shortValue, options) => {
     return options.inverse(this);
   }
 });
-  
+
+// TO DISPLAY A NICE DATE FORMAT
+// New HBS helper 
+// To use it in a .hbs file:
+// {{formatDate myDate}}
+// It will display the return value of the next function
+hbs.registerHelper('formatDate', (date) => {
+  let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  return getOrdinalNum(date.getDate()) + ' '
+  + (months[date.getMonth()]) + ' '
+  + (date.getFullYear())
+});
+
+function getOrdinalNum(n) {
+  return n + (n > 0 ? ['th', 'st', 'nd', 'rd'][(n > 3 && n < 21) || n % 10 > 3 ? 0 : n % 10] : '');
+}
 
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
-
 
 // Enable authentication using session + passport
 app.use(session({

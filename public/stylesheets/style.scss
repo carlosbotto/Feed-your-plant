@@ -62,13 +62,11 @@ body {
 .container-home .card {
   border: none;
   //margin: -10px;
-  
 }
 
 .jumbotron-plants {
   background-repeat: no-repeat;
   background-size: cover;
-  
 }
 
 .container-info-plant{
@@ -76,11 +74,12 @@ body {
   border-radius: 5px;
   max-width: 295px;
 }
+
 .container-info-plant2 {
   background-color: rgba(239, 237, 237, 0.8);
   border-radius: 5px;
 }
 
-.clearfix{
-  clear:both;
-}
+// .clearfix{
+//   clear:both;
+// }

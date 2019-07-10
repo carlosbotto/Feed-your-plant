@@ -19,6 +19,7 @@ router.get("/", (req, res, next) => {
 router.get("/profile", checkLogin, (req, res, next) => {
   PlantUser
     .find({ _user: req.user._id }) // To filter the plants of each user
+    .sort( {created_at: -1} ) // To sort the plant in descending order of creation date
     .then(plantUsers => {
       res.render("profile", { user: req.user, plantUsers }); // When connected, req.user is defined
     });
