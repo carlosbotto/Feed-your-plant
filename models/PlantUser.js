@@ -19,7 +19,6 @@ const plantUserSchema = new Schema(
     //   ref: "PlantFamily"
     // },
   },
-
   {
     timestamps: {
       createdAt: "created_at",

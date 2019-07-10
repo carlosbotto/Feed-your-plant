@@ -7078,6 +7078,7 @@ body {
   background-color: rgba(239, 237, 237, 0.8);
   border-radius: 5px; }
 
+<<<<<<< HEAD
 .clearfix {
   clear: both; }
 
@@ -7088,4 +7089,6 @@ body {
 nav, footer {
   flex-grow: 0; }
 
+=======
+>>>>>>> 9458cdb8df93ecaafc532b95c833546585f2574a
 /*# sourceMappingURL=style.css.map */

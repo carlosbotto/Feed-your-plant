@@ -4,14 +4,17 @@
   <p>Your email: {{user.email}}</p>
   <a class="btn btn-primary" href="/edit-email/{{user._id}}" role="button">Edit</a>
   <br>
-  <p><small class="text-muted">Member since: {{user.created_at}}</small></p>
+  <br>
+  <p><small class="text-muted">Member since: {{formatDate user.created_at}}</small></p>
   <hr class="my-4">
   <a class="btn btn-primary btn-lg" href="/add-plant" role="button">Add plant</a>
+  <br>
+  <br>
 </div>
 
-{{#each plantUsers}}
-<div class="container" style="display:flex; flex-wrap: wrap;">
-  <div class="card-deck card " style="width: 18rem; ">
+{{!-- {{#each plantUsers}}
+<div class="card-deck">
+  <div class="card col-sm-4" style="width: 18rem; ">
     <img src="{{ picPath }}" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title" style="font-size:26px">{{ name }}</h5>
@@ -28,7 +31,40 @@
   </div>
   {{else}}
   <p>There are no plants yet!</p>
-  {{/each}}
 </div>
+  {{/each}} --}}
       
-
+<div class="card-deck">
+{{#each plantUsers}}
+  <div class="card" style="min-width: 18rem; max-width: 22rem;">
+    <img src="{{ picPath }}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ name }}</h5>
+      <p class="card-text">{{ description }}</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Last updated 3 mins ago</small>
+    </div>
+  </div>
+  {{/each}}
+  {{!-- <div class="card">
+    <img src="{{ picPath }}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ name }}</h5>
+      <p class="card-text">{{ description }}</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Last updated 3 mins ago</small>
+    </div>
+  </div>
+  <div class="card">
+    <img src="{{ picPath }}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ name }}</h5>
+      <p class="card-text">{{ description }}</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Last updated 3 mins ago</small>
+    </div>
+  </div> --}}
+</div>

@@ -7,11 +7,12 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const User = require("../models/User");
 const PlantFamily = require("../models/PlantFamily");
+const PlantUser = require("../models/PlantUser");
 
 const bcryptSalt = 10;
 
 mongoose
-  .connect("mongodb://localhost/feed-your-plant", { useNewUrlParser: true })
+  .connect(process.env.MONGODB_URI, { useNewUrlParser: true })
   .then(x => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
@@ -33,7 +34,12 @@ let users = [
     username: "bob",
     password: bcrypt.hashSync("bob", bcrypt.genSaltSync(bcryptSalt)),
     email: "bob@gmail.com"
-  }
+  },
+  {
+    username: "giulia",
+    password: bcrypt.hashSync("giulia", bcrypt.genSaltSync(bcryptSalt)),
+    email: "giulia@gmail.com"
+  },
 ];
 
 User.deleteMany()
@@ -127,6 +133,31 @@ PlantFamily.deleteMany()
     console.log(
       createdDocuments.length +
         " documents have been created in the collection 'plants'"
+    );
+    mongoose.connection.close();
+  });
+
+// ---------------------------------------------------------------------
+
+// THIS IS NOT WORKING
+let plantusers = [
+  {
+    name: "palma",
+    waterFrequencyInDays: 5,
+    picPath: "/images/plant-user/palma.jpg",
+    description: "una bellissima palma",
+    _user: users._id
+  }
+];
+
+PlantUser.deleteMany()
+  .then(() => {
+    return PlantUser.create(plantusers);
+  })
+  .then(plantUsersCreated => {
+    console.log(
+      plantUsersCreated.length +
+        " documents have been created in the collection 'plantusers'"
     );
     mongoose.connection.close();
   });
