@@ -131,5 +131,14 @@ router.get("/remove-plant/:plantUserId", (req, res, next) => {
   });
 });
 
+// GET reminder
+router.get("/reminder", checkLogin, (req, res, next) => {
+  PlantUser
+    .find({ _user: req.user._id }) // To filter the plants of each user
+    .sort( {created_at: -1} ) // To sort the plant in descending order of creation date
+    .then(plantUsers => {
+      res.render("reminder", { user: req.user, plantUsers }); // When connected, req.user is defined
+    });
+});
 
 module.exports = router;

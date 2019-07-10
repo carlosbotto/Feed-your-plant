@@ -119,9 +119,9 @@ app.use((req, res, next) => {
   res.locals.url = req.url; // Define a view variable "url" that is req.user
   res.locals.navlinks = [
     { name: "Plants", href: "/plants" },
-    { name: "Calendar", href: "/calendar" },
     { name: "My garden", href: "/profile", forConnectedUsers: true },
     { name: "Add Plant", href: "/add-plant", forConnectedUsers: true },
+    { name: "Reminder", href: "/reminder", forConnectedUsers: true },
     { name: "Logout", href: "/auth/logout", forConnectedUsers: true },
     { name: "Login", href: "/auth/login", forDisconnectedUsers: true },
     { name: "Signup", href: "/auth/signup", forDisconnectedUsers: true },
