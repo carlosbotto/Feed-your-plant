@@ -6,6 +6,7 @@ const { checkLogin } = require("../middlewares");
 const multer = require("multer");
 const upload = multer({ dest: './public/uploads/' });
 const uploadCloud = require('../config/cloudinary.js');
+const nodemailer = require('nodemailer'); // NEW
 
 
 const router = express.Router();
@@ -131,5 +132,108 @@ router.get("/remove-plant/:plantUserId", (req, res, next) => {
   });
 });
 
+// GET reminder
+router.get("/reminder", checkLogin, (req, res, next) => {
+  PlantUser
+    .find({ _user: req.user._id }) // To filter the plants of each user
+    .sort( {created_at: -1} ) // To sort the plant in descending order of creation date
+    .then(plantUsers => {
+      let today = new Date()
+      let days = []
+      for (let n = 0; n < 7; n++) {
+        let y = today.getFullYear()
+        let m = today.getMonth()
+        let d = today.getDate() + n
+        days.push(new Date(y,m,d))
+      }
+      res.render("reminder", { 
+        plantUsers,
+        days: days
+      }); 
+    });
+});
+
+// POST reminder
+router.post('/reminder', (req, res, next) => {
+  let { email, subject, message } = req.body;
+  let transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+      user: process.env.GMAIL_USER,
+      pass: process.env.GMAIL_PASS
+    }
+  });
+  transporter.sendMail({
+    from: '"My Awesome Project 👻" <myawesome@project.com>',
+    to: email, 
+    subject: subject, 
+    text: message,
+    html: `<b>${message}</b>`
+  })
+  .then(info => res.render('reminder-sent', {email, subject, message, info}))
+  .catch(error => console.log(error));
+});
+
+function shouldWater(plantUser, day) {
+  let diffInDays = Math.ceil((day-plantUser.created_at)/1000/60/60/24)
+  return (diffInDays % plantUser.waterFrequencyInDays === 0) 
+}
+
+
+router.get("/send-email", (req,res,next) => {
+  // TODO: send emails to everyone with the schedule
+  let transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+      user: process.env.GMAIL_USER,
+      pass: process.env.GMAIL_PASS
+    }
+  });
+  User.find()
+    .then(users => {
+      for (let i = 0; i < users.length; i++) {
+        const user = users[i];
+        PlantUser.find({ _user: user._id })
+          .then(plantUsers => {
+            let today = new Date()
+            let days = []
+            for (let n = 0; n < 7; n++) {
+              let y = today.getFullYear()
+              let m = today.getMonth()
+              let d = today.getDate() + n
+              days.push(new Date(y,m,d))
+            }
+            
+            let html = `
+              <h2>Hello</h2>
+              <table>
+                <thead>
+                  <tr>
+                    <th></th>
+                    ${days.map(day => `<th>${day.getDate()}</th>`).join("")}
+                  </tr>
+                </thead>
+                <tbody>
+                  ${plantUsers.map(plantUser => `
+                    <tr>
+                      <td>${plantUser.name}</td>
+                      ${days.map(day => `<td>${shouldWater(plantUser, day) ? "💧" : "x"}</td>`).join("")}
+                    </tr>
+                  `).join("")}
+                </tbody>
+              </table>
+            `
+            console.log("DEBUG", html)
+            transporter.sendMail({
+              from: '"Reminder 🌿" <myawesome@project.com>',
+              to: user.email, 
+              subject: "Reminder 🌿", 
+              html: html
+            })
+          })
+      }
+    })
+  res.json("Hello")
+})
 
 module.exports = router;
