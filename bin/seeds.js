@@ -103,6 +103,24 @@ let plants = [
     waterFrequencyInDays: 2,
     picPath: "/images/DB_plants/rubber_plant.jpg",
     description: "Rubber plants’ water needs vary according to season: In the growing season (summer), the plant should be kept moist. This includes wiping the leaves with a damp cloth or even misting them. During the dormant season, your plant may only need water once or twice a month. Watch for droopy leaves, which indicate a need for more water. Leaves that turn yellow and brown and drop signal over-watering.",
+  },
+  {
+    name: "Snake Plant",
+    waterFrequencyInDays: 2,
+    picPath: "/images/DB_plants/snake_plant.jpg",
+    description: "Easy does it with the watering. You want to be careful not to overdo it because your plant will rot out.  Always make sure the soil is almost completely dry before thoroughly watering again. Water your Snake Plants every 2-6 weeks, depending on your home’s temperature, light levels, and humidity. So, if you travel or tend to ignore plants, this is the 1 for you.",
+  },
+  {
+    name: "Philodendroa",
+    waterFrequencyInDays: 2,
+    picPath: "/images/DB_plants/philodendroa.jpg",
+    description: "RPhilodendrons may be grown in soil or just in water. Plants that live in soil should be watered when half of the soil is dry. As with most plants, yellow leaves indicate over-watering and brown leaves indicate under-watering. You can tell when a philodendron needs water because its leaves will appear wilted. When watered, the plant will reward you with a perky appearance.",
+  },
+  {
+    name: "Peace Lily",
+    waterFrequencyInDays: 2,
+    picPath: "/images/DB_plants/peace_lily.jpg",
+    description: "If you’re wondering how often to water a peace lily, one tip is to wait for the plant to droop slightly before watering. One of the great advantages in caring for the peace lily is the fact that it sags a bit when it needs water, essentially telling you when it’s thirsty. Throughout the summer growing season, spritz the leaves with soft or distilled water. Water your plant less often in winter.",
   }
   
 ];
