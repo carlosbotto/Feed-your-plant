@@ -185,7 +185,7 @@ router.get("/send-email", checkLogin, (req,res,next) => {
             let html = `
             <h2 style="color:green; font-family: superclarendon;">Hello ${user.username}, don't forget to water your plants :)</h2>
             
-            <img src="../images/losango-plant2"/>
+            <img src="https://i.postimg.cc/dVC1VM3T/plantreminder.png"/>
               <table>
                 <thead>
                   <tr>
