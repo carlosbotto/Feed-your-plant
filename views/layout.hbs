@@ -62,7 +62,10 @@
   </nav>
 
 
-
+  {{#if wateringPage}}<div style="background-color: rgba(249, 246, 182, 0.9)">
+    
+  {{/if}}
+  
   {{#unless homePage}}<div class="container mt-4 container-grow flex-grow-1">{{/unless}}
     {{{body}}}
   {{#unless homePage}}</div>{{/unless}}

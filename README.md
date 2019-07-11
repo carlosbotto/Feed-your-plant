@@ -23,7 +23,7 @@ $ git push heroku master
 
 $ heroku run ls
 
-$ heroku run node bin/seeds.js
+$ n
 
 If error:
 $ heroku logs --tail
