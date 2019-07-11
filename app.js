@@ -94,6 +94,20 @@ hbs.registerHelper('shouldWater', (plantUser, day, options) => {
   }
 });
 
+
+// To display singular or plural depending on waterFrequencyInDays
+hbs.registerHelper('waterFrequencyPhrase', (waterFrequencyInDays) => {
+  if (waterFrequencyInDays === 1) {
+    return ` every day`;
+  } else {
+    return ` every ${waterFrequencyInDays} days`
+  }
+});
+
+
+
+
+
 // TO DISPLAY A NICE DATE FORMAT 
 // New HBS helper 
 // To use it in a .hbs file:
@@ -113,7 +127,7 @@ function getOrdinalNum(n) {
 // TO DISPLAY DATE ON TABLE 
 hbs.registerHelper('formatDateTable', (date) => {
   let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];  
-  let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   return days[date.getDay()] + ' '
   + (date.getDate()) + ' '
   + (months[date.getMonth()])

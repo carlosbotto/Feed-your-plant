@@ -5,7 +5,7 @@ const plantUserSchema = new Schema(
   {
     name: String,
     description: String,
-    picPath: { type: String, default: "/images/default-avatar.png"},
+    picPath: { type: String, default: "../images/planta_noimage.png"},
     waterFrequencyInDays: {
       type: Number,
       default: 1
