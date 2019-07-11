@@ -11,14 +11,19 @@ const PlantUser = require("../models/PlantUser");
 
 const bcryptSalt = 10;
 
+// "mongodb://localhost/feed-your-plant"
+// process.env.MONGODB_URI
+
 mongoose
   .connect(process.env.MONGODB_URI, { useNewUrlParser: true })
   .then(x => {
+    
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
     );
   })
   .catch(err => {
+    console.log("DEBUG VAR ",process.env.MONGODB_URI)
     console.error("Error connecting to mongo", err);
   });
 
@@ -75,8 +80,8 @@ let plants = [
     description: "Water when the top soil becomes slightly dry and reduce watering in the winter. The worst thing to do is to over water (not underwater) because lack of water is easily fixed, unlike the damage from over-watering.",
   },
   {
-    name: "Boston Fern",
-    waterFrequencyInDays: 2,
+    name: "Boston Fern blalalalalala",
+    waterFrequencyInDays: 1,
     picPath: "/images/DB_plants/boston_fern.jpg",
     description: "Water the fern when the soil becomes damp. Do not allow the soil to dry out. This may mean watering twice a week or daily in hot weather. The frequency will change depending on the temperature and moisture in your home. Add enough water so that it flows out the drainage holes on the bottom of the container."
   },

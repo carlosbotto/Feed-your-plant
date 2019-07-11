@@ -1,26 +1,25 @@
 <h2>Reminder <span><a class="btn btn-outline-success btn-md float-right" href="/send-email" role="button">Send reminder</a></span></h2>
 
-<table class="table" style="margin-top:30px">
-  <thead>
-    <tr>
-      <th ><span class="float-right" style="color: #19975d; font-size:14px">every</span></th>
+<table class="table table-bordered table-responsive{-sm|-md|-lg|-xl}" style="margin-top:30px">
+  <thead >
+    <tr class="table-success">
+      <th  scope="col"><span class="float-right" style="color: #19975d; font-size:14px">every</span></th>
       {{#each days}}
-      <th>{{formatDateTable this}}</th>
+      <th scope="col">{{formatDateTable this}}</th>
       {{/each}}
     </tr>
   </thead>
   <tbody>
     {{#each plantUsers}}
     <tr>
-      <td>{{ name }} | <span class="float-right" style="color: #19975d; font-size:15px">{{waterFrequencyInDays}} days</td>
+      <th scope="row">{{ name }} | <span class="float-right" style="color: #19975d; font-size:15px">{{waterFrequencyInDays}} days</th>
       {{!-- <td><img src="{{picPath}}" style="max-height: 70px"></td> --}}
       {{#each ../days}}
-      <td>
+      <td>{{#shouldWater ../this this}}
         {{!-- ../this is for the current plantUsers and this is for the current days --}}
-        {{#shouldWater ../this this}}
-            <span style="color:white">___</span>💦
+            <center>💦</center>
         {{else}}
-            <span style="color:white">___</span>☓
+            <center >☓</center>
         {{/shouldWater}}
       </td>
       {{/each}}
