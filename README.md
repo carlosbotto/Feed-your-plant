@@ -22,8 +22,7 @@ We decided to create a simple interface that enables the user to create his own 
 6. Multer, Cloudinary
 7. Nodemailer
 
-Thanks for reading :herb:
-*Giulia & Carlos*
+Thanks for reading :herb: *Giulia & Carlos*
 
 ## Useful info
 
