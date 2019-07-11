@@ -197,7 +197,7 @@ router.get("/send-email", checkLogin, (req,res,next) => {
                   ${plantUsers.map(plantUser => `
                     <tr>
                       <td>${plantUser.name}</td>
-                      ${days.map(day => `<td>${shouldWater(plantUser, day) ? "💧" : "x"}</td>`).join("")}
+                      ${days.map(day => `<td>${shouldWater(plantUser, day) ? "💦" : "☓"}</td>`).join("")}
                     </tr>
                   `).join("")}
                 </tbody>

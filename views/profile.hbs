@@ -2,9 +2,9 @@
   <h2  style="margin-bottom:-2px">Hello, {{user.username}}!</h1>
   <p><small class="text-muted d-inline-block">Member since: {{formatDate user.created_at}}</small></p>
   <p class="lead"  style="color:#0e7e4a">This is your Garden. Here you can manage all of your plants.</p>
-  <p><a class="btn btn-outline-secondary btn-sm" href="/edit-email/{{user._id}}" role="button">edit</a><span>{{user.email}}</span></p>
+  <p><a class="btn btn-outline-secondary btn-sm" href="/edit-email/{{user._id}}" role="button">edit</a><span style="margin-left:15px">{{user.email}}</span></p>
   
-  <a class="btn btn-primary btn-lg pull-right" href="/add-plant" role="button">Add plant</a>
+  <a class="btn btn-primary btn-lg " href="/add-plant" role="button">Add plant</a>
   <hr class="my-4">
 </div>
       
@@ -15,12 +15,12 @@
     <div class="card-body">
       <h5 class="card-title" style="font-size:24px">{{ name }}</h5>
       <hr>
-      <p class="card-text" style="font-size:14px">{{ description }}</p>
+      <p class="card-text" style="font-size:15px">{{ description }}</p>
         <hr>
-      <p class="card-text" style="font-size:18px; color: #19975d; "><strong>To water every {{ waterFrequencyInDays }} days </strong></p>
+      <p class="card-text float-center" style="font-size:18px; color: #19975d; "><strong>To water every {{ waterFrequencyInDays }} days </strong></p>
       <hr>
-      <a href="/edit-plant-user/{{ _id }}" class="card-link" style="color: #19975d; text-center">Edit</a>
-      <a href="/remove-plant/{{ _id }}" class="card-link" style="color: #19975d;">Remove</a>
+      <a href="/edit-plant-user/{{ _id }}" class="card-link float-center" style="color:slategrey ">Edit</a>
+      <a href="/remove-plant/{{ _id }}" class="card-link" style="color:slategrey">Remove</a>
     </div>
     <div class="card-footer">
       <small class="text-muted">Created on the {{formatDate created_at}}</small>
@@ -30,3 +30,5 @@
   <p>There are no plants yet!</p>
   {{/each}}
 </div>
+
+
