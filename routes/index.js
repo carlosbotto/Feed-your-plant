@@ -242,4 +242,9 @@ router.get("/reminder-sent", (req, res, next) => {
   res.render("reminder-sent");
 });
 
+// GET watering hint
+router.get("/watering-hint", (req, res, next) => {
+  res.render("watering-hint");
+});
+
 module.exports = router;

@@ -2,9 +2,9 @@
 //   border: 2px red solid;
 // }
 
-@font-face {
-  src: url(superclarendon.woff);
-}
+@font-face { font-family: superclarendon; src: url("superclarendon.woff");}
+
+
 $primary: rgba(249, 246, 182, 0.9);
 $success: #19975cc8;
 
