@@ -10,15 +10,21 @@ $success: #19975cc8;
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
 h1,
-h2,
+
 h3,
-h4 {
+h4, h5 {
   font-family: superclarendon;
   font-weight: bold;
 }
 
-h4 {
-  color: #19975d;
+h2{
+  font-family: superclarendon;
+  font-weight: bold;
+  color: #19975cb1;
+}
+
+h4, h5 {
+  color: #19975c;
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -32,6 +38,12 @@ h4 {
 .container-home-inf{
   background-color: rgba(249, 246, 182, 0.9);
 }
+
+.container-watering{
+  max-width: 750px;
+  text-align: center;
+}
+
 
 .navbar-brand {
   line-height: 50px;

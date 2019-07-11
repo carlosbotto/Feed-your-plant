@@ -247,4 +247,10 @@ router.get("/watering-hint", (req, res, next) => {
   res.render("watering-hint", {wateringPage:true});
 });
 
+
+// GET our project
+router.get("/our-project", (req, res, next) => {
+  res.render("our-project", {ourProject:true});
+});
+
 module.exports = router;

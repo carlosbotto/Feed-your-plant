@@ -3,13 +3,24 @@
     <div class="container">
       <h1 class="display-4" style="font-weight: bold; text-shadow: -3px 1px 6px rgba(92, 161, 101, 1)">Feed your Plant
       </h1>
-      <h5 class="lead" style="font-weight: bold; text-shadow: -3px 1px 6px rgba(92, 161, 101, 1); font-size:22.5px">
-        Watering Reminder | Create your garden</h5>
-      <hr class="my-4">
+      <p class="lead" style="font-weight: bold; text-shadow: -3px 1px 6px rgba(92, 161, 101, 1); font-size:22.5px">
+        Watering Reminder | Create your garden</p>
+
+      <br>
+
       {{!-- <p style="font-weight: bold">It uses utility classes for typography and spacing to space content out within the larger container.</p> --}}
-      <a class="btn btn-primary btn-md" href="/watering-hint" role="button">Watering hints</a>
-      <a class="btn btn-primary btn-md" href="/plants" role="button">Start to feed</a>
-      
+      <a class="btn btn-primary btn-lg" href="/plants" role="button">Start to feed</a>
+
+      <br><br>
+      <div class="btn-group-vertical" >
+        <a href="/watering-hint" style="opacity:0.8">
+          <button type="button" class="btn-ouline-light btn-sm">Watering hints</button>
+        </a>
+        {{!-- <a href="/our-project" style="opacity:0.8"> --}}
+          <button type="button" class="btn btn-light btn-sm">Our project</button>
+        </a>
+      </div>
+
     </div>
   </div>
   <div class="container">
