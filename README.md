@@ -49,3 +49,7 @@ In the console of Heroku:
 ```
 $ node bin/seeds.js
 ```
+
+### Template for email
+
+$ npm install mjml
