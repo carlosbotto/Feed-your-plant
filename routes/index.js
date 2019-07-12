@@ -78,16 +78,24 @@ router.post(
     if (req.file) {
       picPath = req.file.url; // or .secure_url
     }
-    const _user = req.user._id;
-    // const _plant = req.plant._id;
-    const newPlantUser = new PlantUser({
-      name,
-      description,
-      waterFrequencyInDays,
-      picPath,
-      _user
-    });
-    newPlantUser
+
+    // PlantUser.findOne({ waterFrequencyInDays }, "waterFrequencyInDays", (err, waterFrequencyInDays) => {
+    //   if (typeOf(waterFrequencyInDays) !== Number) {
+    //     res.render("/add-plant", { message: "Please insert a frequncy in number"}
+    //     );
+    //     return;
+    //   }
+      
+      const _user = req.user._id;
+      // const _plant = req.plant._id;
+      const newPlantUser = new PlantUser({
+        name,
+        description,
+        waterFrequencyInDays,
+        picPath,
+        _user
+      });
+      newPlantUser
       .save()
       .then(photo => {
         res.redirect("/profile"); // Once the plant is created, go to profile to display it
@@ -95,8 +103,8 @@ router.post(
       .catch(error => {
         console.log(error);
       });
-  }
-);
+    // })
+  });
 
 // EDIT THE PLANT-USER
 // Route to display a form

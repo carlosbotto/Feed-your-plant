@@ -7,17 +7,17 @@
 
   {{!-- This input to define a req.body.name --}}
   <label>Name</label>
-  <input class="form-control" type="text" style="background-color: rgba(249, 246, 186, 0.2)" name="name" value="{{plant.name}}">
+  <input class="form-control" type="text" placeholder="The name of your plant" style="background-color: rgba(249, 246, 186, 0.2)" name="name" value="{{plant.name}}">
   <br>
 
   {{!-- This input to define a req.body.description --}}
   <label>Description</label>
-  <textarea class="form-control" name="description" rows="5" cols="20" style="background-color: rgba(249, 246, 182, 0.2)">{{plant.description}}</textarea>
+  <textarea class="form-control" placeholder="Info about your plant" name="description" rows="5" cols="20" style="background-color: rgba(249, 246, 182, 0.2)">{{plant.description}}</textarea>
   <br>
 
   {{!-- This input to define a req.body.waterFrequencyInDays --}}
   <label>Water frequency every X days</label>
-  <input class="form-control" type="text" name="waterFrequencyInDays" value="{{plant.waterFrequencyInDays}}" style="background-color: rgba(249, 246, 182, 0.2)">
+  <input class="form-control" type="number" min="1" max="30" placeholder="Insert a number" name="waterFrequencyInDays" value="{{plant.waterFrequencyInDays}}" style="background-color: rgba(249, 246, 182, 0.2)">
   <br>
 
   {{#if plant.picPath}}
