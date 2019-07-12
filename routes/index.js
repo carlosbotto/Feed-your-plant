@@ -78,6 +78,7 @@ router.post(
     if (req.file) {
       picPath = req.file.url; // or .secure_url
     }
+<<<<<<< HEAD
 
     // PlantUser.findOne({ waterFrequencyInDays }, "waterFrequencyInDays", (err, waterFrequencyInDays) => {
     //   if (typeOf(waterFrequencyInDays) !== Number) {
@@ -96,6 +97,19 @@ router.post(
       _user
     });
     newPlantUser
+=======
+  
+      const _user = req.user._id;
+      // const _plant = req.plant._id;
+      const newPlantUser = new PlantUser({
+        name,
+        description,
+        waterFrequencyInDays,
+        picPath,
+        _user
+      });
+      newPlantUser
+>>>>>>> 32085212bb3583fe704925ab52a2944a1ac48f01
       .save()
       .then(photo => {
         res.redirect("/profile"); // Once the plant is created, go to profile to display it
