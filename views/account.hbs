@@ -1,0 +1,24 @@
+<div class="container-fluid">
+
+  <h2>Your account</h2>
+
+  <br><br>
+
+  <form action="/edit-email/{{user._id}}" method="post">
+
+    <label>Username</label>
+    <p>{{user.username}}</p>
+    <br>
+
+    <label>Member since</label>
+    <p>{{formatDate user.created_at}}</p>
+    <br>
+
+    <label>Email</label>
+    <p>{{user.email}}</p>
+      <p><a class="btn btn-md btn-primary " href="/edit-email/{{user._id}}" role="button">edit email</a></p>
+
+
+  </form>
+
+</div>
