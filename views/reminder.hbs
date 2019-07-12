@@ -1,3 +1,5 @@
+{{#if plantUsers}}
+
 <h2>Reminder <span><a class="btn btn-outline-success btn-md float-right" href="/send-email" role="button">Send reminder</a></span></h2>
 
 <table class="table table-bordered table-responsive{-sm|-md|-lg|-xl}" style="margin-top:30px">
@@ -28,5 +30,12 @@
   </tbody>
 </table>
 
+{{else}}
 
+<h2>There are no plants in your garden</h2>
+<div class="btn-group mr-2" role="group" aria-label="Second group">
+    <a class="btn btn-primary btn-sm "  style="margin-top:15px"  href="/add-plant" role="button">Add your own plant</a>
+    <a class="btn btn-primary btn-sm  " style="margin-left:8px; margin-top:15px" href="/plants" role="button">Add from our collection</a>
+  </div>
 
+{{/if}}
