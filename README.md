@@ -5,7 +5,7 @@
 [Link to Heroku](https://feedyourplant.herokuapp.com/)
 
 ## Our project: watering reminder for plant lovers
-Since my colleague and I are both passionate about gardening and indoor plants, we agreed about the difficulty to remember the different watering needs that every specific plants have.
+Our passion for gardening and indoor plants, brought us here. We've agreed about the difficulty to remember the different watering needs that every specific plants have.
 We decided to create a simple interface that enables the user to create his own virtual garden in two different ways: by adding the sample plants provided inside our archive, with the possibility to customise their information, or by creating his own new plants. Starting from the creation date, all the plants are displayed and saved in the “garden” page. Their specific watering need, expressed in days, is saved and stored inside the “reminder”, a calendar that shows a watering plan of seven days. There is the possibility to receive the reminder by email.
 
 ## Possible improvements
@@ -49,3 +49,7 @@ In the console of Heroku:
 ```
 $ node bin/seeds.js
 ```
+
+### Template for email
+
+$ npm install mjml
