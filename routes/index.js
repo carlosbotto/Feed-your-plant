@@ -78,17 +78,16 @@ router.post(
     if (req.file) {
       picPath = req.file.url; // or .secure_url
     }
-  
-      const _user = req.user._id;
-      // const _plant = req.plant._id;
-      const newPlantUser = new PlantUser({
-        name,
-        description,
-        waterFrequencyInDays,
-        picPath,
-        _user
-      });
-      newPlantUser
+    const _user = req.user._id;
+    // const _plant = req.plant._id;
+    const newPlantUser = new PlantUser({
+      name,
+      description,
+      waterFrequencyInDays,
+      picPath,
+      _user
+    });
+    newPlantUser
       .save()
       .then(photo => {
         res.redirect("/profile"); // Once the plant is created, go to profile to display it
@@ -97,7 +96,8 @@ router.post(
         console.log(error);
       });
     // })
-  });
+  }
+);
 
 // EDIT THE PLANT-USER
 // Route to display a form
@@ -189,10 +189,26 @@ router.get("/send-email", checkLogin, (req, res, next) => {
           }
 
           let html = `
-            <img src="https://i.postimg.cc/MTnPBYQN/plantreminder.png"/>
-            <h2 style="color:green; font-family: monospace; text-decoration: none;">Hello ${
+          <div style="background-color:rgba(249, 246, 182, 0.9); max-width: 450px; border-radius: 20px">
+            <div >
+              <img src="https://i.postimg.cc/MTnPBYQN/plantreminder.png"; style="display: block;
+              padding-top: 20px;
+              padding-bottom: 2px;
+              margin-left: auto;
+              margin-right: auto;
+              width: 20%;">
+            </div>
+            <h2 style="color:rgb(0,151,87); font-family: garamond; text-decoration: none; line-height: 10%"> <center>Hello ${
               user.username
-            }, don't forget to water your plants :)</h2>
+            },</center></h2>
+            <h3 style="color:rgb(0,151,87); font-family: garamond; text-decoration: none; padding-bottom:-100px;"> <center>don't forget to water your plants 🌿</center></h3> 
+            <span><center style="color:rgb(0,151,87);">_________________________</center></span>
+            <br>
+
+
+
+            
+            <center>
             <table>
             <thead>
             <tr>
@@ -218,8 +234,9 @@ router.get("/send-email", checkLogin, (req, res, next) => {
             </tbody>
             </table>
             <br><br>
-            <a href="https://feedyourplant.herokuapp.com/">Go to Feed your Plant 🌿 </a>
-            `;
+            <span ><center style="padding-bottom:30px">Go to <a href="https://feedyourplant.herokuapp.com/" style="text-decoration:none; padding-bottom:30px; font-size: 20px; color:rgb(0,151,87); font-family: garamond; "> Feed your Plant</a></center></span>
+            </center>
+          </div>`;
 
           console.log("DEBUG", html);
           transporter.sendMail({
@@ -245,12 +262,12 @@ router.get("/reminder-sent", (req, res, next) => {
 
 // GET watering hint
 router.get("/watering-hint", (req, res, next) => {
-  res.render("watering-hint", {wateringPage:true});
+  res.render("watering-hint", { wateringPage: true });
 });
 
 // GET our project
 router.get("/our-project", (req, res, next) => {
-  res.render("our-project", {ourProject:true});
+  res.render("our-project", { ourProject: true });
 });
 
 module.exports = router;
