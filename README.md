@@ -33,6 +33,7 @@ $ npm install bootstrap
 $ npm install --save  multer
 $ npm install --save cloudinary multer-storage-cloudinary multer
 $ npm install nodemailer
+$ npm install mjml
 ```
 
 ### To run the project
@@ -49,7 +50,3 @@ In the console of Heroku:
 ```
 $ node bin/seeds.js
 ```
-
-### Template for email
-
-$ npm install mjml
